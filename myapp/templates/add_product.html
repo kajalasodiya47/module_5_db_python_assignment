@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+ <form action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data">
+     {% csrf_token %}
+     <label for="p_name">Product name:</label><br>
+     <input type="text" id="p_name" name="p_name"><br>
+     <label for="p_price">Product Price:</label><br>
+     <input type="number" id="p_price" name="p_price"><br>
+     <label for="p_image">Product Image:</label><br>
+     <input type="file" id="p_image" name="p_image"><br>
+     <label for="p_model">Product model:</label><br>
+     <input type="text" id="p_model" name="p_model"><br>
+     <label for="p_ram">Product Ram:</label><br>
+     <input type="text" id="p_ram" name="p_ram"><br>
+     <input type="submit" value = "ADD">
+ </form>
+</body>
+</html>

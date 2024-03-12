@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h2>Products</h2>
+<table border="1">
+  <tr>
+    <th>Product Name</th>
+    <th>Product Price</th>
+    <th>Product Model</th>
+    <th>Product Ram</th>
+    <th>Product Image</th>
+    <th>Action</th>
+  </tr>
+   {% for product,subcates in product_details.items %}
+     <tr>
+        <td>{{ product.product_name }}</td>
+        {% for subcat in subcates %}
+           <td>{{ subcat.product_price }}</td>
+           <td>{{ subcat.product_model }}</td>
+           <td>{{ subcat.product_ram }}</td>
+            <td><img style="height:100px;width:100px;" src="{{ subcat.product_image.url }}"></td>
+           <td><a href="{% url 'pedit' pk=product.pk %}" style="text-decoration: none; "><button type="submit" >UPDATE</a>
+            <a href="{% url 'pdelete' pk=product.pk %}" style="text-decoration: none;"><button type="submit" >DELETE</a></td> 
+        {% endfor %}
+     </tr>
+   {% endfor %}
+</table>
+</body>
+</html>
+

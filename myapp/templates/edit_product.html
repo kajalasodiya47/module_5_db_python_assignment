@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form action="{% url 'p_edit'  pk=product.pk %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label for="p_name">Product name:</label><br>
+  <input type="text" id="p_name" name="p_name" value="{{product.product_name}}"><br>
+  {% for category in product_cat %} 
+    <label for="p_price">Product Price:</label><br>
+    <input type="number" id="p_price" name="p_price" value="{{category.product_price}}"><br>
+    <label for="p_image">Product Image:</label><br>
+    <input type="file" id="p_image" name="p_image"><br>
+    <img src="{{category.product_image.url}}" style="height:150px;width:150px;"><br>
+    <label for="p_model">Product model:</label><br>
+    <input type="text" id="p_model" name="p_model" value="{{category.product_model}}"><br>
+    <label for="p_ram">Product Ram:</label><br>
+    <input type="text" id="p_ram" name="p_ram" value="{{category.product_ram}}"><br>
+  {% endfor %}
+  <input type="submit" value = "Edit">
+</form>
+</body>
+</html>
